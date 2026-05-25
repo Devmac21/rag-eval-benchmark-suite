@@ -1,0 +1,43 @@
+{
+  "corpus_id": "demo_corpus",
+  "chunks": [
+    {
+      "id": "chunk_python_origin",
+      "text": "Python is a high-level programming language. Its reference implementation is CPython. It was conceived by Guido van Rossum in the late 1980s.",
+      "metadata": {"source": "manual"}
+    },
+    {
+      "id": "chunk_faiss",
+      "text": "FAISS is a library for efficient similarity search and clustering of dense vectors developed by Meta AI Research.",
+      "metadata": {"source": "manual"}
+    },
+    {
+      "id": "chunk_rag",
+      "text": "Retrieval-augmented generation (RAG) grounds language model outputs using retrieved documents to reduce hallucinations.",
+      "metadata": {"source": "manual"}
+    }
+  ],
+  "examples": [
+    {
+      "query_id": "q_python_author",
+      "query": "Who created Python?",
+      "relevant_chunk_ids": ["chunk_python_origin"],
+      "gold_answer": "Guido van Rossum",
+      "metadata": {}
+    },
+    {
+      "query_id": "q_faiss",
+      "query": "What is FAISS used for?",
+      "relevant_chunk_ids": ["chunk_faiss"],
+      "gold_answer": "Efficient similarity search on dense vectors",
+      "metadata": {}
+    },
+    {
+      "query_id": "q_rag",
+      "query": "How does RAG help language models?",
+      "relevant_chunk_ids": ["chunk_rag"],
+      "gold_answer": "It grounds outputs using retrieved documents",
+      "metadata": {}
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "corpus_id": "medium_demo",
+  "chunks": [
+    {
+      "id": "m_py",
+      "text": "Python is a programming language. Guido van Rossum released the first version in 1991. The language emphasizes readability.",
+      "metadata": {}
+    },
+    {
+      "id": "m_js",
+      "text": "JavaScript runs in browsers and on servers via Node.js. It is unrelated to Java despite the name.",
+      "metadata": {}
+    },
+    {
+      "id": "m_vec",
+      "text": "Dense retrieval encodes chunks and queries into vectors. Similarity search finds nearest neighbors in embedding space.",
+      "metadata": {}
+    },
+    {
+      "id": "m_bm25",
+      "text": "BM25 is a sparse lexical ranking function. It scores query term frequency and document length.",
+      "metadata": {}
+    },
+    {
+      "id": "m_rag",
+      "text": "RAG retrieves documents before generation. It reduces hallucinations when contexts are relevant.",
+      "metadata": {}
+    }
+  ],
+  "examples": [
+    {
+      "query_id": "mq1",
+      "query": "Who created Python?",
+      "relevant_chunk_ids": ["m_py"],
+      "gold_answer": "Guido van Rossum"
+    },
+    {
+      "query_id": "mq2",
+      "query": "What is BM25?",
+      "relevant_chunk_ids": ["m_bm25"],
+      "gold_answer": "A lexical ranking function"
+    },
+    {
+      "query_id": "mq3",
+      "query": "How does dense retrieval work?",
+      "relevant_chunk_ids": ["m_vec"],
+      "gold_answer": "Vectors and similarity search"
+    }
+  ]
+}

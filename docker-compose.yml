@@ -1,0 +1,25 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - QDRANT_URL=http://qdrant:6333
+      - RAG_EVAL_RUNS_DIR=/app/runs
+      - RAG_EVAL_REPORTS_DIR=/app/reports
+    volumes:
+      - ./runs:/app/runs
+      - ./reports:/app/reports
+    depends_on:
+      - qdrant
+
+  qdrant:
+    image: qdrant/qdrant:v1.11.0
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+
+volumes:
+  qdrant_storage:
