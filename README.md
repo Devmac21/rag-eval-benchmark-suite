@@ -6,29 +6,20 @@ Modular toolkit for benchmarking retrieval-augmented generation (RAG) stacks: **
 
 ```mermaid
 flowchart TB
-  subgraph Data
-    BP[BenchmarkPack: chunks + QA + relevance ids]
-  end
-  subgraph Retrieval
-    BM25[BM25 Index]
-    DEN[Dense Retriever]
-    HYB[Hybrid RRF]
-    RER[Cross-Encoder Rerank]
-  end
-  subgraph Stores
-    FAISS[FAISS IndexFlatIP]
-    QD[Qdrant Client]
-  end
-  subgraph Metrics
-    RM[Recall@K / MRR / NDCG]
-    GM[Faithfulness / Relevance / Precision / Hallucination rate]
-    LAT[Latency summaries]
-  end
-  subgraph Outputs
-    RUNS[Experiment JSON runs/]
-    REP[Reports reports/]
-    FIG[Charts reports/figures/]
-  end
+  BP["BenchmarkPack (chunks and QA labels)"]
+  BM25["BM25 index"]
+  DEN["Dense retriever"]
+  HYB["Hybrid RRF"]
+  RER["Cross-encoder rerank"]
+  FAISS["FAISS index"]
+  QD["Qdrant client"]
+  RM["Recall-at-K · MRR · NDCG"]
+  GM["Faithfulness relevance precision hallucination"]
+  LAT["Latency summaries"]
+  RUNS["Experiment JSON"]
+  REP["Markdown and CSV reports"]
+  FIG["Matplotlib PNG figures"]
+
   BP --> BM25
   BP --> DEN
   BM25 --> HYB
@@ -37,9 +28,11 @@ flowchart TB
   DEN --> FAISS
   DEN --> QD
   BM25 --> RM
-  RER --> RM
+  DEN --> RM
   HYB --> RM
+  RER --> RM
   BP --> GM
+  HYB --> LAT
   RM --> RUNS
   GM --> RUNS
   LAT --> RUNS
